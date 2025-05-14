@@ -6,12 +6,15 @@
 }
 
 #navbar *  {
-  @apply mx-2
+  @apply mx-3
 }
 .navbarbutton {
   @apply bg-blue-400 text-white rounded py-3 px-8 border border-blue-500 font-bold text-xl;
 }
 
+#navbar a {
+  @apply text-white hover:text-blue-50;
+}
 
 .panel {
   @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 
@@ -27,4 +30,12 @@ h1{
 
 input {
   @apply block w-full rounded-md bg-blue-400 border border-blue-500 focus:border-blue-400 px-3 py-2
+}
+
+p {
+  @apply text-lg
+}
+
+a {
+  @apply underline text-blue-400 hover:text-blue-300 visited:text-indigo-400
 }

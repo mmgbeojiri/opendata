@@ -1,4 +1,5 @@
 import './App.css'
+import { Link, Outlet } from 'react-router-dom'
 
 function Navbar() {
   const toggleStuff = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,17 +23,17 @@ function Navbar() {
         <h1 className='navbarbutton'>OpenData.com</h1>
 
         <div className="hidden lg:flex text-xl flex-row gap-5">
-          <a href="#">Home</a>
-          <a href="#">Info</a>
-          <a href="#">Analysis</a>
+          <Link to="/">Home</Link>
+          <Link to="/info">Info</Link>
+          <Link to="/analysis">Analysis</Link>
         </div>
 
-        <button id="menuButton" className="navbarbutton hover:!bg-blue-300 !px-5 text-2xl" onClick={toggleStuff}>☰</button>
+        <button id="menuButton" className="navbarbutton lg:hidden hover:!bg-blue-300 !px-5 text-2xl" onClick={toggleStuff}>☰</button>
         
 
         
       </div>
-      <div id="panelContainer" className='ease-out duration-200 h-0 overflow-hidden'>
+      <div id="panelContainer" style={{height: "0px"}} className='ease duration-500 h-0 overflow-hidden'>
       <div className='panel'>
         <p>Home</p>
       </div>
@@ -43,6 +44,8 @@ function Navbar() {
         <p>Analysis</p>
       </div>
       </div>
+
+      <Outlet />
     </>
   )
 }
