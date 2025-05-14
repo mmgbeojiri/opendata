@@ -1,2 +1,2 @@
 # OpenData School Project
-This is the github that includes some background information on the topic, the ability to view relevant information, as well as to analyze the data in visual and other formats..
+This is the github that includes some background information on the topic, the ability to view relevant information, as well as to analyze the data in visual and other formats. This repo uses the 311 Service Requests from 2010 to Present, which can be found here: [OpenData](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/about_data)
