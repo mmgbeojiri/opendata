@@ -5,12 +5,24 @@
   @apply duration-100;
 }
 
-.logo {
+#navbar *  {
+  @apply mx-2
+}
+.navbarbutton {
   @apply bg-blue-400 text-white rounded py-3 px-8 border border-blue-500 font-bold text-xl;
 }
 
+
+.panel {
+  @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 
+}
+
+.panel p {
+  @apply text-white 
+}
+
 h1{
-  @apply text-3xl font-bold block border rounded p-2 m-2 bg-blue-50 border-blue-100 text-blue-400;
+  @apply text-3xl font-bold block border rounded p-2 my-2 bg-blue-50 border-blue-100 text-blue-400;
 }
 
 input {
