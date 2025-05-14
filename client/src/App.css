@@ -4,6 +4,22 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   @apply duration-100;
 }
+h1{
+  @apply text-3xl font-bold block border rounded p-2 my-2 bg-blue-50 border-blue-100 text-blue-400;
+}
+
+input {
+  @apply block w-full rounded-md bg-transparent border border-gray-300 px-3 py-2
+}
+
+p {
+  @apply text-lg
+}
+
+a {
+  @apply underline text-blue-400 hover:text-blue-300 visited:text-indigo-400
+}
+
 
 #navbar *  {
   @apply mx-3
@@ -20,22 +36,11 @@
   @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 
 }
 
-.panel p {
-  @apply text-white 
+.panel .panellink {
+  @apply text-white no-underline;
 }
 
-h1{
-  @apply text-3xl font-bold block border rounded p-2 my-2 bg-blue-50 border-blue-100 text-blue-400;
+.panel .panellink:active {
+  @apply text-blue-300;
 }
 
-input {
-  @apply block w-full rounded-md bg-transparent border border-gray-300 px-3 py-2
-}
-
-p {
-  @apply text-lg
-}
-
-a {
-  @apply underline text-blue-400 hover:text-blue-300 visited:text-indigo-400
-}
