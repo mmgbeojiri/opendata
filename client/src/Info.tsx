@@ -2,6 +2,28 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios'
+
+interface DataEntry {
+    created_date: String
+    agency_name: String 
+    complaint_type: String
+    descriptor: String
+    location_type: String
+    incident_address: String
+    city: String
+    status: String
+    borough: String
+    latitude?: String
+    longitude?: String
+
+}
+
+const callApi = async () => {
+  let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json"
+  const [jsonData, setJsonData] = useState<DataEntry[]>([])
+  axios.get(url).then((response: any) => {setJsonData(response.data)} )
+}
 
 function Info() {
 
