@@ -77,9 +77,14 @@ return (
     <hr className='border-gray-300 m-5'></hr>
 
     <div id="output">
-      {specificData.map((entry: DataEntry, index: number) => (
-        <div key={index}>
+      {jsonData.map((entry: DataEntry, index: number) => (
+        <div className='card' key={index}>
           <h1>{entry.agency_name} - {entry.complaint_type}</h1>
+          <h2>Time: {
+          new Date(entry.created_date).toLocaleTimeString()
+          }</h2>
+          <p>{entry.descriptor}</p>
+
         </div>
       ))}
     </div>

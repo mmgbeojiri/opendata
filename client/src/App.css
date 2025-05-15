@@ -45,3 +45,11 @@ a {
 .panellink {
   @apply text-white  no-underline;
 }
+
+.card {
+  @apply mx-auto max-w-3xl rounded-lg bg-white shadow p-4
+}
+
+.card h1 {
+  @apply text-2xl font-bold border-0 bg-transparent text-gray-400
+}
