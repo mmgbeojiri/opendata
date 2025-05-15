@@ -36,6 +36,9 @@ a {
   @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 block no-underline
 }
 
+.panel:active {
+  @apply bg-purple-200
+}
 .panel .panellink {
   @apply text-white no-underline;
 }

@@ -34,7 +34,7 @@ function Navbar() {
         
       </div>
       <div id="panelContainer" style={{height: "0px"}} className='ease duration-500 h-0 overflow-hidden'>
-      <NavLink to="/" className='panel'>
+      <NavLink to="/" className={({ isActive }) => (isActive ? 'active-link panel' : 'panel')}
           <span className="panellink">Home</span >
       </NavLink>
       <NavLink to="/info" className='panel'>
