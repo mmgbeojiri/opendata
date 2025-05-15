@@ -35,15 +35,13 @@ a {
 .panel {
   @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 block no-underline
 }
-
-.panel:active {
-  @apply bg-purple-200
+.active-link {
+  @apply !text-blue-400
 }
-.panel .panellink {
-  @apply text-white no-underline;
-}
-
-.panel .panellink:active {
-  @apply text-blue-300;
+#panelContainer .active-link {
+  @apply bg-blue-100
 }
 
+.panellink {
+  @apply text-white  no-underline;
+}
