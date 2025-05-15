@@ -33,7 +33,7 @@ a {
 }
 
 .panel {
-  @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 
+  @apply bg-blue-200 p-2 border border-blue-300 hover:bg-blue-100 block no-underline
 }
 
 .panel .panellink {

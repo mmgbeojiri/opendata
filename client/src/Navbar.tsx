@@ -23,9 +23,9 @@ function Navbar() {
         <h1 className='navbarbutton'>OpenData.com</h1>
 
         <div className="hidden lg:flex text-xl flex-row gap-5">
-          <NavLink  className="panellink" to="/">Home</NavLink >
-          <NavLink  className="panellink" to="/info">Info</NavLink >
-          <NavLink  className="panellink" to="/analysis">Analysis</NavLink >
+          <NavLink className="panellink" to="/">Home</NavLink >
+          <NavLink className="panellink" to="/info">Info</NavLink >
+          <NavLink className="panellink" to="/analysis">Analysis</NavLink >
         </div>
 
         <button id="menuButton" className="lg:hidden navbarbutton hover:!bg-blue-300 !px-5 text-2xl" onClick={toggleStuff}>☰</button>
@@ -34,15 +34,15 @@ function Navbar() {
         
       </div>
       <div id="panelContainer" style={{height: "0px"}} className='ease duration-500 h-0 overflow-hidden'>
-      <NavLink to="/" className='panel block'>
-          <NavLink className="panellink" to="/">Home</NavLink >
+      <NavLink to="/" className='panel'>
+          <span className="panellink">Home</span >
       </NavLink>
-      <div className='panel'>
-          <NavLink  className="panellink" to="/info">Info</NavLink >
-      </div>
-       <div className='panel'>
-          <NavLink  className="panellink" to="/analysis">Analysis</NavLink >
-      </div>
+      <NavLink to="/info" className='panel'>
+          <span  className="panellink" >Info</span >
+      </NavLink>
+       <NavLink  to="/analysis" className='panel'>
+          <span  className="panellink" >Analysis</span >
+      </NavLink>
       </div>
 
       <Outlet />
