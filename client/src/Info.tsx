@@ -61,7 +61,7 @@ function Info() {
   const copy = ((str: string) => {
     navigator.clipboard.writeText(str)
       .then(() => {
-        console.log('Text copied to clipboard');
+        alert('Text copied to clipboard');
       })
       .catch((err) => {
         console.error('Error copying text: ', err);
@@ -102,10 +102,16 @@ return (
               entry.status === "Open" ? "greenText" :
                 entry.status === "In Progress" ? "yellowText" : ""
           }>Status: {entry.status}</p>
-          <div className='latlon'>
+
+          {entry.latitude && entry.longitude ? <div className='latlon'>
             <span>Location: ({entry.latitude}, {entry.longitude})</span>
-            <button className='copybutton' onClick={copy(`(${entry.latitude}, ${entry.longitude})`)}>Copy</button>
+            <button className='copybutton' onClick={() => {
+              copy(`(${entry.latitude}, ${entry.longitude})`)
+              }
+              }>Copy</button>
           </div>
+          : <></>}
+
         </div>
       ))}
     </div>
