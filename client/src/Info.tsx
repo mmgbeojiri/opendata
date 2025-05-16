@@ -5,17 +5,17 @@ import './App.css'
 import axios from 'axios'
 
 interface DataEntry {
-  created_date: String
-  agency_name: String
-  complaint_type: String
-  descriptor: String
-  location_type: String
-  incident_address: String
-  city: String
-  status: String
-  borough: String
-  latitude?: String
-  longitude?: String
+  created_date: string
+  agency_name: string
+  complaint_type: string
+  descriptor: string
+  location_type: string
+  incident_address: string
+  city: string
+  status: string
+  borough: string
+  latitude?: string
+  longitude?: string
 
 }
 
@@ -80,10 +80,18 @@ return (
       {jsonData.map((entry: DataEntry, index: number) => (
         <div className='card' key={index}>
           <h1>{entry.agency_name} - {entry.complaint_type}</h1>
-          <h2>Time: {
-          new Date(entry.created_date).toLocaleTimeString()
+          <h2>{
+          new Date(entry.created_date).toLocaleDateString().toString() + " " + new Date(entry.created_date).toLocaleTimeString()
           }</h2>
-          <p>{entry.descriptor}</p>
+          <p>Description: {entry.descriptor}</p>
+          <p>Location Type: {entry.location_type}</p>
+          <p>{entry.incident_address}</p>
+          <p>{entry.borough} - {entry.city}</p>
+          <p className={
+            entry.status === "Closed" ? "redText" :
+              entry.status === "Open" ? "greenText" :
+                entry.status === "In Progress" ? "yellowText" : ""
+          }>Status: {entry.status}</p>
 
         </div>
       ))}

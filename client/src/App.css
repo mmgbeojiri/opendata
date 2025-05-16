@@ -51,5 +51,22 @@ a {
 }
 
 .card h1 {
-  @apply text-2xl font-bold border-0 bg-transparent text-gray-400
+  @apply text-2xl font-bold border-0 bg-gray-50 text-gray-400
+}
+
+.card h2 {
+  @apply text-xl text-gray-300
+}
+
+.greenText {
+  @apply text-green-500 bg-green-50 p-2 rounded 
+}
+
+.yellowText {
+  @apply text-yellow-500 bg-yellow-50 p-2 rounded 
+}
+
+
+.redText {
+  @apply text-red-500 bg-red-50 p-2 rounded 
 }
