@@ -48,7 +48,6 @@ function Analysis() {
 
 
 
-  const [boroughData, setBoroughData] = useState<ArrayEntry[]>([])
 
   const boroughsTally: ArrayEntry[] = [
     ["MANHATTAN", 0],
