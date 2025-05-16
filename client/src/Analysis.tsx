@@ -63,15 +63,18 @@ function Analysis() {
         if (entry.borough) {
             console.log(entry.borough)
             for (let i = 0; i < boroughsTally.length; i++) {
+                // loop until we find the borough
+                // if the borough is found, increment the count
                 if (entry.borough.toUpperCase() === boroughsTally[i][0]) {
                     boroughsTally[i][1] += 1
                 }
+                break;
             }
            
         }
     })
 
-    console.log(boroughData)
+    console.log(boroughsTally)
   }
 
   return (
