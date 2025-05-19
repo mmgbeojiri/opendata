@@ -44,12 +44,13 @@ function Analysis() {
 
   useEffect(() => {if (jsonData.length > 0) {
     tallyBoroughs();
+    tallyStatus();
   }}), [jsonData]
 
 
 
 
-  const boroughsTally: ArrayEntry[] = [
+  let boroughsTally: ArrayEntry[] = [
     ["MANHATTAN", 0],
     ["BRONX", 0],
     ["BROOKLYN", 0],
@@ -57,23 +58,58 @@ function Analysis() {
     ["STATEN ISLAND", 0]
   ]
 
+  const [boroughCount, setBoroughCount] = useState<ArrayEntry[]>(boroughsTally)
+
   function tallyBoroughs() {
+    //let notFound: number = 0;
       jsonData.forEach((entry: DataEntry) => {
         if (entry.borough) {
             console.log(entry.borough)
             for (let i = 0; i < boroughsTally.length; i++) {
                 // loop until we find the borough
                 // if the borough is found, increment the count
-                if (entry.borough.toUpperCase() === boroughsTally[i][0]) {
-                    boroughsTally[i][1] += 1
+                if (entry.borough == boroughsTally[i][0]) {
+                    boroughsTally[i][1] += 1;
+                    
                 }
-                break;
+                
             }
            
-        }
+        } /*else {
+          notFound += 1;
+        }*/
     })
 
-    console.log(boroughsTally)
+    /*let notFoundEntry: ArrayEntry = ["Unknown", notFound]
+    boroughsTally.push(notFoundEntry)*/
+    setBoroughCount(boroughsTally)
+
+    console.log(boroughCount)
+  }
+
+  let statusTally: ArrayEntry[] = [
+    ["Open", 0],
+    ["In Progress", 0],
+    ["Closed", 0],
+  ]
+
+  const [statusCount, setStatusCount] = useState<ArrayEntry[]>(statusTally)
+  function tallyStatus() {
+    //let notFound: number = 0;
+      jsonData.forEach((entry: DataEntry) => {
+        if (entry.status) {
+            for (let i = 0; i < statusTally.length; i++) {
+                if (entry.status == statusTally[i][0]) {
+                    statusTally[i][1] += 1;                  
+                }             
+            }     
+        } /*else {
+          notFound += 1;
+        }*/
+    })
+    /*let notFoundEntry: ArrayEntry = ["Unknown", notFound]
+    statusTally.push(notFoundEntry)*/
+    setStatusCount(statusTally)
   }
 
   return (
@@ -81,7 +117,8 @@ function Analysis() {
       <div className='m-5'>
         <h1>Analysis</h1>
       </div>
-        {boroughsTally.toString()}
+        {boroughCount.toString()}
+        {statusCount.toString()}
       
     </>
   )
