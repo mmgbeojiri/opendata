@@ -30,6 +30,7 @@ function Analysis() {
     await axios.get(url)
       .then((response: any) => {
         setJsonData(response.data)
+        console.log("got data")
       })
   }
 
@@ -39,13 +40,16 @@ function Analysis() {
     callApi()
     console.log("API called")
 
-   
+
   }, [])
 
-  useEffect(() => {if (jsonData.length > 0) {
-    tallyBoroughs();
-    tallyStatus();
-  }}), [jsonData]
+  useEffect(() => {
+    if (jsonData.length > 0) {
+      tallyBoroughs();
+      tallyStatus();
+      tallyComplaint();
+    }
+  }), [jsonData]
 
 
 
@@ -62,20 +66,21 @@ function Analysis() {
 
   function tallyBoroughs() {
     //let notFound: number = 0;
-      jsonData.forEach((entry: DataEntry) => {
-        if (entry.borough) {
-            console.log(entry.borough)
-            for (let i = 0; i < boroughsTally.length; i++) {
-                // loop until we find the borough
-                // if the borough is found, increment the count
-                if (entry.borough == boroughsTally[i][0]) {
-                    boroughsTally[i][1] += 1;
-                    
-                }
-                
-            }
-           
-        } /*else {
+    jsonData.forEach((entry: DataEntry) => {
+      if (entry.borough) {
+        console.log(entry.borough)
+        for (let i = 0; i < boroughsTally.length; i++) {
+          // loop until we find the borough
+          // if the borough is found, increment the count
+          if (entry.borough == boroughsTally[i][0]) {
+            boroughsTally[i][1] += 1;
+            console.log(boroughsTally[i][0] + " " + boroughsTally[i][1])
+
+          }
+
+        }
+
+      } /*else {
           notFound += 1;
         }*/
     })
@@ -96,14 +101,14 @@ function Analysis() {
   const [statusCount, setStatusCount] = useState<ArrayEntry[]>(statusTally)
   function tallyStatus() {
     //let notFound: number = 0;
-      jsonData.forEach((entry: DataEntry) => {
-        if (entry.status) {
-            for (let i = 0; i < statusTally.length; i++) {
-                if (entry.status == statusTally[i][0]) {
-                    statusTally[i][1] += 1;                  
-                }             
-            }     
-        } /*else {
+    jsonData.forEach((entry: DataEntry) => {
+      if (entry.status) {
+        for (let i = 0; i < statusTally.length; i++) {
+          if (entry.status == statusTally[i][0]) {
+            statusTally[i][1] += 1;
+          }
+        }
+      } /*else {
           notFound += 1;
         }*/
     })
@@ -112,14 +117,60 @@ function Analysis() {
     setStatusCount(statusTally)
   }
 
+  let complaintTally: ArrayEntry[] = [
+    ["Street Condition", 0],
+    ["Street Light Condition", 0],
+    ["Blocked Driveway", 0],
+    ["Illegal Parking", 0],
+    ["Noise - Residential", 0],
+    ["Dead/Dying Tree", 0],
+    ["Noise - Street/Sidewalk", 0],
+    ["Dirty Condition", 0],
+    ["For Hire Vehicle Complaint", 0],
+    ["Homeless Person Assistance", 0],
+    ["Non-Emergency Police Matter", 0],
+    ["Abandoned Bike", 0],
+    ["Graffiti", 0],
+    ["Drug Activity", 0],
+    ["Rodent", 0],
+    ["Noise - Commercial", 0],
+    ["Noise - Vehicle", 0],
+    ["Food Establishment", 0],
+
+  ]
+
+  const [complaintCount, setComplaintCount] = useState<ArrayEntry[]>(statusTally)
+  function tallyComplaint() {
+    let other: number = 0;
+    jsonData.forEach((entry: DataEntry) => {
+      if (entry.complaint_type) {
+        for (let i = 0; i < complaintTally.length; i++) {
+          if (entry.complaint_type == complaintTally[i][0]) {
+            complaintTally[i][1] += 1;
+            break;
+          }
+          if (i == complaintTally.length - 1) { 
+            other += 1;
+          }
+        }
+      } else {
+        other += 1;
+      }
+    })
+    let notFoundEntry: ArrayEntry = ["Other", other]
+    complaintTally.push(notFoundEntry)
+    setComplaintCount(complaintTally)
+  }
+
   return (
     <>
       <div className='m-5'>
         <h1>Analysis</h1>
       </div>
-        {boroughCount.toString()}
-        {statusCount.toString()}
-      
+      {boroughCount.toString()}
+      {statusCount.toString()}
+      {complaintCount.toString()}
+
     </>
   )
 }
