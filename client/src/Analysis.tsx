@@ -23,21 +23,6 @@ interface DataEntry {
 
 type ArrayEntry = [string, number]
 
-function createPieChart(data: ArrayEntry[], title: string) { 
-  const chartRef = useRef<any>(null);
-  useEffect(() => {
-  const chart = c3.generate({
-    bindto: chartRef.current,
-    data: {
-      columns: data,
-      type: 'pie',
-    },
-  });
-
-  return () => {
-    chart.destroy();
-  }}, []);
-}
 
 function Analysis() {
   const [jsonData, setJsonData] = useState<DataEntry[]>([])
@@ -179,11 +164,57 @@ function Analysis() {
     setComplaintCount(complaintTally)
   }
 
+  
+const boroughChartRef = useRef<any>(null);
+  useEffect(() => {
+  const chart = c3.generate({
+    bindto: boroughChartRef.current,
+    data: {
+      columns: boroughCount,
+      type: 'pie',
+    },
+  });
+
+  return () => {
+    chart.destroy();
+  }}, [boroughCount]);
+
+
+  const statusChartRef = useRef<any>(null);
+  useEffect(() => {
+  const chart = c3.generate({
+    bindto: statusChartRef.current,
+    data: {
+      columns: statusCount,
+      type: 'pie',
+    },
+  });
+
+  return () => {
+    chart.destroy();
+  }}, [statusCount]);
+
+    const complaintChartRef = useRef<any>(null);
+  useEffect(() => {
+  const chart = c3.generate({
+    bindto: complaintChartRef.current,
+    data: {
+      columns: complaintCount,
+      type: 'pie',
+    },
+  });
+
+  return () => {
+    chart.destroy();
+  }}, [complaintCount]);
   return (
     <>
       <div className='m-5'>
         <h1>Analysis</h1>
       </div>
+      <div ref={boroughChartRef}></div>
+      <div ref={statusChartRef}></div>
+      <div ref={complaintChartRef}></div>
       {boroughCount.toString()}
       {statusCount.toString()}
       {complaintCount.toString()}
