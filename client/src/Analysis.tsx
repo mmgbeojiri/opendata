@@ -44,12 +44,17 @@ function Analysis() {
   }, [])
 
   useEffect(() => {
+    console.log("jsonData changed")
+    console.log(jsonData)
+  }, [jsonData])
+
+  useEffect(() => {
     if (jsonData.length > 0) {
       tallyBoroughs();
       tallyStatus();
       tallyComplaint();
     }
-  }), [jsonData]
+  },[jsonData])
 
 
 
@@ -68,13 +73,11 @@ function Analysis() {
     //let notFound: number = 0;
     jsonData.forEach((entry: DataEntry) => {
       if (entry.borough) {
-        console.log(entry.borough)
         for (let i = 0; i < boroughsTally.length; i++) {
           // loop until we find the borough
           // if the borough is found, increment the count
           if (entry.borough == boroughsTally[i][0]) {
             boroughsTally[i][1] += 1;
-            console.log(boroughsTally[i][0] + " " + boroughsTally[i][1])
 
           }
 
@@ -89,7 +92,6 @@ function Analysis() {
     boroughsTally.push(notFoundEntry)*/
     setBoroughCount(boroughsTally)
 
-    console.log(boroughCount)
   }
 
   let statusTally: ArrayEntry[] = [
@@ -136,7 +138,6 @@ function Analysis() {
     ["Noise - Commercial", 0],
     ["Noise - Vehicle", 0],
     ["Food Establishment", 0],
-
   ]
 
   const [complaintCount, setComplaintCount] = useState<ArrayEntry[]>(statusTally)
