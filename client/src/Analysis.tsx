@@ -212,12 +212,24 @@ const boroughChartRef = useRef<any>(null);
       <div className='m-5'>
         <h1>Analysis</h1>
       </div>
-      <div ref={boroughChartRef}></div>
-      <div ref={statusChartRef}></div>
-      <div ref={complaintChartRef}></div>
-      {boroughCount.toString()}
-      {statusCount.toString()}
-      {complaintCount.toString()}
+      <div className='m-5'>
+        <h2>Borough Visualization</h2>
+        <div ref={boroughChartRef}></div>
+      </div>
+      <div className='m-5'>
+        <h2>Status Visualization</h2>
+        <div ref={statusChartRef}></div>
+      </div>
+      <div className='m-5'>
+        <h2>Complaint Type Visualization</h2>
+        <div ref={complaintChartRef}></div>
+      </div>
+      <div className='m-5 p-5 text-gray-500 bg-gray-50 rounded border border-gray-100'>
+        <h3 className='text-xl font-bold'>Debug</h3>
+        <p>boroughCount: {boroughCount.toString()}</p>
+        <p>statusCount: {statusCount.toString()}</p>
+        <p>complaintCount: {complaintCount.toString()}</p>
+      </div>
 
 
     </>
