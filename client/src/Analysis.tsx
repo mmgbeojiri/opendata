@@ -121,24 +121,24 @@ function Analysis() {
   }
 
   let complaintTally: ArrayEntry[] = [
-    ["Street Condition", 0],
-    ["Street Light Condition", 0],
+    //["Street Condition", 0],
+    //["Street Light Condition", 0],
     ["Blocked Driveway", 0],
     ["Illegal Parking", 0],
     ["Noise - Residential", 0],
-    ["Dead/Dying Tree", 0],
+    //["Dead/Dying Tree", 0],
     ["Noise - Street/Sidewalk", 0],
-    ["Dirty Condition", 0],
-    ["For Hire Vehicle Complaint", 0],
-    ["Homeless Person Assistance", 0],
-    ["Non-Emergency Police Matter", 0],
-    ["Abandoned Bike", 0],
-    ["Graffiti", 0],
-    ["Drug Activity", 0],
-    ["Rodent", 0],
+    //["Dirty Condition", 0],
+    //["For Hire Vehicle Complaint", 0],
+    //["Homeless Person Assistance", 0],
+    //["Non-Emergency Police Matter", 0],
+    //["Abandoned Bike", 0],
+    //["Graffiti", 0],
+    //["Drug Activity", 0],
+    //["Rodent", 0],
     ["Noise - Commercial", 0],
-    ["Noise - Vehicle", 0],
-    ["Food Establishment", 0],
+    //["Noise - Vehicle", 0],
+    //["Food Establishment", 0],
   ]
 
   const [complaintCount, setComplaintCount] = useState<ArrayEntry[]>(statusTally)
