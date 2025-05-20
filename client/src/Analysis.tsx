@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import c3 from 'c3';
+import 'c3/c3.css';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -21,7 +23,21 @@ interface DataEntry {
 
 type ArrayEntry = [string, number]
 
+function createPieChart(data: ArrayEntry[], title: string) { 
+  const chartRef = useRef<any>(null);
+  useEffect(() => {
+  const chart = c3.generate({
+    bindto: chartRef.current,
+    data: {
+      columns: data,
+      type: 'pie',
+    },
+  });
 
+  return () => {
+    chart.destroy();
+  }}, []);
+}
 
 function Analysis() {
   const [jsonData, setJsonData] = useState<DataEntry[]>([])
@@ -171,6 +187,7 @@ function Analysis() {
       {boroughCount.toString()}
       {statusCount.toString()}
       {complaintCount.toString()}
+
 
     </>
   )
