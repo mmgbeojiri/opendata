@@ -22,6 +22,17 @@ a {
   @apply underline text-blue-400 hover:text-blue-300 visited:text-indigo-400
 }
 
+ul {
+  @apply border border-gray-200 rounded px-10 py-5 my-2 bg-gray-50 text-gray-500
+}
+
+li {
+  @apply list-disc text-lg
+}
+
+hr {
+  @apply my-4 h-px border-0 bg-gray-300
+}
 
 #navbar *  {
   @apply mx-3
