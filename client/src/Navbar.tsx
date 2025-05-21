@@ -1,5 +1,5 @@
 import './App.css'
-import { NavLink , Outlet } from 'react-router-dom'
+import { Link, NavLink , Outlet } from 'react-router-dom'
 
 function Navbar() {
   const toggleStuff = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <>
       <div id="navbar" className="bg-blue-300 p-2 text-white items-center flex justify-between flex-row">
-        <h1 className='navbarbutton'>OpenData.com</h1>
+        <h1 className='navbarbutton'><NavLink to="/" className="!no-underline">OpenData.com</NavLink></h1>
 
         <div className="hidden lg:flex text-xl flex-row gap-5">
           <NavLink className={({ isActive }) => (isActive ? 'active-link panellink' : 'panellink')} to="/">Home</NavLink >

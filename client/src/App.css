@@ -38,7 +38,7 @@ hr {
   @apply mx-3
 }
 .navbarbutton {
-  @apply bg-blue-400 text-white rounded py-3 px-8 border border-blue-500 font-bold text-xl;
+  @apply bg-blue-400 hover:bg-blue-300 text-white rounded py-3 px-8 border border-blue-500 font-bold text-xl;
 }
 
 #navbar a {
