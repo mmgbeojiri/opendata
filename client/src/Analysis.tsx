@@ -26,12 +26,13 @@ type ArrayEntry = [string, number]
 
 function Analysis() {
   const [jsonData, setJsonData] = useState<DataEntry[]>([])
+  const [getData, setGetData] = useState<string>("Fetching...")
   const callApi = async () => {
     let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json"
     await axios.get(url)
       .then((response: any) => {
         setJsonData(response.data)
-        console.log("got data")
+        setGetData("Retrieved")
       })
   }
 
@@ -226,6 +227,7 @@ const boroughChartRef = useRef<any>(null);
       </div>
       <div className='m-5 p-5 text-gray-500 bg-gray-50 rounded border border-gray-100'>
         <h3 className='text-xl font-bold'>Debug</h3>
+        <p>Data Status: {getData}</p>
         <p>boroughCount: {boroughCount.toString()}</p>
         <p>statusCount: {statusCount.toString()}</p>
         <p>complaintCount: {complaintCount.toString()}</p>
