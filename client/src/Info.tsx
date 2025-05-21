@@ -27,7 +27,7 @@ function Info() {
   const [jsonData, setJsonData] = useState<DataEntry[]>([])
   const [specificData, indexData] = useState<DataEntry[]>([])
   const callApi = async () => {
-    let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json"
+    let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json$limit=10000"
     await axios.get(url)
       .then((response: any) => {
         setJsonData(response.data)
