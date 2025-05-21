@@ -23,7 +23,7 @@ a {
 }
 
 ul {
-  @apply border border-gray-200 rounded px-10 py-5 my-2 bg-gray-50 text-gray-500
+  @apply border border-gray-100 rounded px-10 py-5 my-2 bg-gray-50 text-gray-500
 }
 
 li {
