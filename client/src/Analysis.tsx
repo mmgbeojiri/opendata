@@ -28,7 +28,7 @@ function Analysis() {
   const [jsonData, setJsonData] = useState<DataEntry[]>([])
   const [getData, setGetData] = useState<string>("Fetching...")
   const callApi = async () => {
-    let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json$limit=10000"
+    let url: string = "https://data.cityofnewyork.us/resource/erm2-nwe9.json"
     await axios.get(url)
       .then((response: any) => {
         setJsonData(response.data)
