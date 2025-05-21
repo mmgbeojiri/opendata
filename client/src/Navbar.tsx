@@ -28,7 +28,7 @@ function Navbar() {
           <NavLink className={({ isActive }) => (isActive ? 'active-link panellink' : 'panellink')} to="/analysis">Analysis</NavLink >
         </div>
 
-        <button id="menuButton" className="lg:hidden navbarbutton hover:!bg-blue-300 !px-5 text-2xl" onClick={toggleStuff}>☰</button>
+        <button id="menuButton" className="navbarbutton" onClick={toggleStuff}>☰</button>
         
 
         
