@@ -24,7 +24,7 @@ function Home() {
         <p>You can find this here: <a target="_blank" href='https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/about_data'>OpenData Link</a></p>
         <hr></hr>
         <h2 id="info">Info Page</h2>
-        <div className='flex flex-col xl:!flex-row gap-4 items-center'>
+        <div className='flex flex-col xl:!flex-row xl:gap-4 items-center'>
         <div className='flex-1 w-full'><p>On the Info page, you can find information about the dataset.</p>
         <p>It contains information about the complaint, such as:</p>
         <ul>
@@ -50,8 +50,8 @@ function Home() {
           <li>Blocked Driveway</li>
           <li>Illegal Parking</li>
         </ul>
-        <hr className='xl:hidden flex '></hr>
-</div><div className='card !mx-0' >
+        <hr className='xl:hidden flex'></hr>
+</div><div className='card !m-0' >
 
             <h1>Agency Name - Complaint Type</h1>
 
@@ -63,7 +63,7 @@ function Home() {
               <p>Description</p>
               <p>Location Type</p> 
               <p>Incident Address</p>
-              <p>borough - city</p>
+              <p>Borough - City</p>
             </div>
 
             <p className="greenText"        
