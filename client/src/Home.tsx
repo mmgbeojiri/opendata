@@ -1,9 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import c3 from 'c3';
+import 'c3/c3.css';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function Home() {
+  type ArrayEntry = [string, number]
+    let boroughsTally: ArrayEntry[] = [
+    ["Manhattan", 300],
+    ["Bronx", 200],
+    ["Brooklyn", 150],
+    ["Queens", 250],
+    ["Staten Island", 100]
+  ]
+  const boroughChartRef = useRef<any>(null);
+  useEffect(() => {
+  const chart = c3.generate({
+    bindto: boroughChartRef.current,
+    data: {
+      columns: boroughsTally,
+      type: 'pie',
+    },
+  });
+
+  return () => {
+    chart.destroy();
+  }}, [boroughsTally]);
 
   return (
     <>
@@ -100,7 +123,7 @@ function Home() {
 
       </div>
       <div>
-        <p>HEY</p>
+        <div ref={boroughChartRef}></div>
       </div>
       </div>
       </div>
