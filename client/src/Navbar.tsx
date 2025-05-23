@@ -1,8 +1,8 @@
 import './App.css'
-import { Link, NavLink , Outlet } from 'react-router-dom'
+import {NavLink , Outlet } from 'react-router-dom'
 
 function Navbar() {
-  const toggleStuff = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleStuff = () => {
 
 
     /* Toggle between hiding and showing the active panel */
