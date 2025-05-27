@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/opendata'>
     <Routes>
       <Route path="/" element={<Layout  />}>
         <Route index element={<Home />} />
