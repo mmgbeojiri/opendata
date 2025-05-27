@@ -6,13 +6,13 @@ import './App.css';
 
 function Layout() {
   return (
-    <>
+    <div id="layout">
       <Navbar />
       <main>
        
       </main>
         <Footer />
-    </>
+    </div>
   );
 }
 
