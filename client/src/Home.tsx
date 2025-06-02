@@ -113,14 +113,14 @@ function Home() {
 
       <h2 id="analysis">Analysis Page</h2>
       <div className='flex flex-col xl:!flex-row xl:gap-4 items-center'>
-      <div className='flex-1 w-full'>
+      <div className='flex-1 w-full '>
       <p>On the analysis page, you can see a visualization of the entries as pie charts.</p>
       <p>It contains informination about the borough, status, and complaint type.</p>
       <p>It is very useful for finding which borough has the most requests, or the majority of requests if they are still open.</p>
               <hr className='xl:hidden flex'></hr>
 
       </div>
-      <div>
+      <div className='flex-1 w-full '>
         <div ref={boroughChartRef}></div>
       </div>
       </div>
